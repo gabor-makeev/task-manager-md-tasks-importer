@@ -1,0 +1,9 @@
+{
+    "name": "gabormakeev/task-manager-tasks-importer",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Gabormakeev\\TaskManagerTasksImporter\\": "src/"
+        }
+    }
+}
