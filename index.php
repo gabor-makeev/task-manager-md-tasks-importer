@@ -40,11 +40,16 @@ foreach ($my_notes as $line) {
 
 $mysqli = mysqli_connect('127.0.0.1', 'sail', 'password', 'laravel', 3306);
 
- foreach($array as $item) {
+date_default_timezone_set('Europe/Budapest');
+
+$timestamp = time();
+
+ foreach($array as $key => $item) {
+     $created_at = date("Y-m-d H:i:s", $timestamp - $key);
      $name = $item['name'];
      $description = isset($item['description']) ? $item['description'] : "";
      $userId = 2;
      $statusId = $item['statusId'];
 
-     $mysqli->query("INSERT INTO tasks (name, description, user_id, status_id) VALUES ('{$name}', '{$description}', '{$userId}', '{$statusId}')");
+     $mysqli->query("INSERT INTO tasks (name, description, user_id, status_id, created_at) VALUES ('{$name}', '{$description}', '{$userId}', '{$statusId}', '{$created_at}')");
  }
